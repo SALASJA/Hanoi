@@ -21,7 +21,7 @@ class TowerOfHanoi:
 	
 	def execute(self,operation):
 		source = operation[0]
-		destoperation[-1]
+		destination = operation[-1]
 		return self.move(source, destination)
 		
 	def move(self, source, destination):
