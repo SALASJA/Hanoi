@@ -32,11 +32,6 @@ main()
 
 
 
-
-
-
-
-
 """
 HANOI's TOWER
 
