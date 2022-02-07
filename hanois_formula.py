@@ -73,7 +73,7 @@ notice the length of the operation sequence for each row
 5       31
 
 BINARY TREES ALSO HAVE SIMILAR property
-we also see similaraties accross the rows of the plot of HANOI TOWER SOLUTIONS
+we also see similaraties across the rows of the plot of HANOI TOWER SOLUTIONS
 this hints of recursion (even when playing the game, we can see recursive)
 
 turns out its a INORDER BINARY TREE TRAVERSAL, we can illustrate this with some of
