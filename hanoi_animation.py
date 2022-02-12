@@ -10,12 +10,12 @@ class TowerView:
 		tracer(0,0)
 		hideturtle()
 		bgcolor("black")
-		self.colors = ["red", "orange", "yellow","green", "cyan","blue", "purple"]
+		self.colors = ["red", "orange", "yellow","green", "cyan","blue", "purple", "grey", "pink","brown","lightblue"]
 		self.tower_positions = {"L": -400, "C":0, "R":400}
-		self.MAX_WIDTH = 50
-		self.MAX_HEIGHT = 30
+		self.MAX_WIDTH = 0
+		self.MAX_HEIGHT = 20
 		self.STARTING_HEIGHT = -100
-		self.WIDTH_DELTA = 50
+		self.WIDTH_DELTA = 30
 		
 		
 	
@@ -53,17 +53,32 @@ class TowerView:
 
 
 def main():
-	height = int(sys.argv[1]) if len(sys.argv) == 2 and sys.argv[1].isnumeric() else 3
 	view = TowerView()
-	puzzle = TowerOfHanoi(height)
-	solution = S({"L","C","R"}, {"L"}, {"R"}, height)
-	view.render(puzzle.state)
-	time.sleep(1)
-	for operation in solution:
-		puzzle.execute(operation)
+	puzzle = None
+	valid = True
+	try:
+		height = int(textinput("", "enter the height"))
+		puzzle = TowerOfHanoi(height)
+	except:
+		valid = False
+		
+	while valid:
+		solution = S({"L","C","R"}, {"L"}, {"R"}, puzzle.height)
 		view.render(puzzle.state)
-		time.sleep(0.50)
-	time.sleep(2)
+		time.sleep(1)
+		for operation in solution:
+			puzzle.execute(operation)
+			view.render(puzzle.state)
+			time.sleep(0.50)
+		time.sleep(2)
+		
+		try:
+			puzzle.height = int(textinput("", "enter the height"))
+			puzzle.reset()
+			valid = True
+		except Exception as e:
+			print(e)
+			valid = False
 
 main()
 

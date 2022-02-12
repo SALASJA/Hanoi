@@ -41,4 +41,7 @@ class TowerOfHanoi:
 	
 	def solved(self):
 		return sum(self.state["R"]) == (self.height * (self.height + 1))/2
+	
+	def reset(self):
+		self.state = {"L":[i for i in range(self.height, 0, -1)], "C":[], "R":[]}
 			
